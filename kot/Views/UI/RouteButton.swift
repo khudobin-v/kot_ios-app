@@ -4,7 +4,7 @@ struct RouteButton: View {
     let transportType: TransportType
     let routeNumber: String
     var body: some View {
-        Button(action: {}) {
+        Button(action: { }) {
             VStack(spacing: 4) {
                 Image(systemName: transportType.icon)
                     .font(.system(size: 32))

@@ -8,7 +8,7 @@ struct FavoriteView: View {
             Image(systemName: iconName)
                 .fontWeight(.bold)
                 .font(.system(size: 28))
-                .foregroundColor(.green)
+                .foregroundColor(.darkGreen)
                 .frame(width: 60, height: 60)
                 .background(Color(.green).opacity(0.3))
                 .clipShape(Circle())
