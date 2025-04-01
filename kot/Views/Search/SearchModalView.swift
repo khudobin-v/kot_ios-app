@@ -2,19 +2,8 @@ import SwiftUI
 
 struct SearchModalView: View {
     @State private var searchText = ""
+    @State var settingsSheetIsPresenting: Bool = false
     @Binding var sheetDetent: PresentationDetent
-    struct Route: Identifiable {
-        let id = UUID()
-        let transportType: TransportType
-        let routeNumber: String
-    }
-    
-    let routes: [Route] = [
-        Route(transportType: .tram, routeNumber: "8"),
-        Route(transportType: .trolleybus, routeNumber: "21"),
-        Route(transportType: .bus, routeNumber: "2Е")
-    ]
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -30,15 +19,8 @@ struct SearchModalView: View {
                             FavoriteView(name: "Маршруты", iconName: "arrow.triangle.branch", childrenView: FavoriteRoutesView())
                         }
                     }
-                    GroupContainer(heading: "Маршруты", canNavigate: true) {
-                        HStack {
-                            ForEach(routes) { route in
-                                RouteButton(transportType: route.transportType, routeNumber: route.routeNumber)
-                                    .frame(maxWidth: .infinity)
-                            }
-                        }
-                    }
-                    Button(action: {}) {
+                    RoutesGroupView(childrenView: RoutesListView())
+                    Button(action: {settingsSheetIsPresenting = true}) {
                         HStack(spacing: 10) {
                             Image(systemName: "gearshape")
                             Text("Настройки")
@@ -49,6 +31,13 @@ struct SearchModalView: View {
                         .fontWeight(.medium)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
+                    }
+                    .sheet(isPresented: $settingsSheetIsPresenting) {
+                        VStack {
+                            SettingsView().padding().padding(.top, 10)
+                            Spacer()
+                        }
+                        .presentationDragIndicator(.visible)
                     }
                     Button(action: {}) {
                         HStack(spacing: 10) {
