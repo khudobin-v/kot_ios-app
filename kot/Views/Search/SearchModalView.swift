@@ -23,11 +23,11 @@ struct SearchModalView: View {
                 .padding(.top, sheetDetent != .large ? 25 : 20)
                     GroupContainer(heading: "Избранное") {
                         HStack {
-                            FavoriteView(name: "Транспорт", iconName: "bus.fill")
+                            FavoriteView(name: "Транспорт", iconName: "bus.fill", childrenView: FavoriteTransportView())
                             Spacer()
-                            FavoriteView(name: "Остановки", iconName: "mappin.and.ellipse")
+                            FavoriteView(name: "Остановки", iconName: "mappin.and.ellipse", childrenView: FavoriteStopsView())
                             Spacer()
-                            FavoriteView(name: "Маршруты", iconName: "arrow.triangle.branch")
+                            FavoriteView(name: "Маршруты", iconName: "arrow.triangle.branch", childrenView: FavoriteRoutesView())
                         }
                     }
                     GroupContainer(heading: "Маршруты", canNavigate: true) {
