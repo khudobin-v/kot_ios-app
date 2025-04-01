@@ -21,7 +21,6 @@ struct SearchModalView: View {
                 SearchBar(searchText: $searchText)
                 .padding(.horizontal)
                 .padding(.top, sheetDetent != .large ? 25 : 20)
-                if (sheetDetent == .height(600)) {
                     GroupContainer(heading: "Избранное") {
                         HStack {
                             FavoriteView(name: "Транспорт", iconName: "bus.fill")
@@ -64,7 +63,6 @@ struct SearchModalView: View {
                         .padding(.horizontal)
                     }
                     InfoBar()
-                }
             }
             .frame(alignment: .top)
             .onTapGesture {
