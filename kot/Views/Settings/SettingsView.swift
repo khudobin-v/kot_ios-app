@@ -9,19 +9,19 @@ struct SettingsView: View {
         )
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Настройки")
+            Text(Strings.Settings.title)
                 .font(.title.weight(.medium))
             ScrollView() {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Все настройки, которые вы изменяете, остаются на вашем устройстве. Эти данные не передаются ни на какие серверы и не выходят в интернет.")
+                    Text(Strings.Settings.description)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Внешний вид")
+                        Text(Strings.Settings.AppearanceSection.title)
                             .fontWeight(.medium)
                         Toggle(isOn: $darkMode) {
                             VStack(alignment: .leading, spacing: 5) {
-                                Text("Темный режим")
+                                Text(Strings.Settings.AppearanceSection.darkMode)
                                     .fontWeight(.medium)
-                                Text("Отображать приложение в темных тонах")
+                                Text(Strings.Settings.AppearanceSection.darkModeDescription)
                                     .font(.caption)
                             }
                         }
@@ -38,10 +38,10 @@ struct SettingsView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Данные")
+                        Text(Strings.Settings.DataSection.title)
                             .fontWeight(.medium)
                     }
-                    Text("Сброс и разработка")
+                    Text(Strings.Settings.ResetAndDevelopmentSection.title)
                         .fontWeight(.medium)
                 }
                 .font(.callout)

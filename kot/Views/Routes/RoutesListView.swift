@@ -3,7 +3,7 @@ import SwiftUI
 struct RoutesListView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Маршруты")
+            Text(Strings.SearchModal.RoutesGroup.title)
                 .font(.title.weight(.medium))
             
             ScrollView {
@@ -18,17 +18,17 @@ struct RoutesListView: View {
     }
     
     private var attributedDescription: AttributedString {
-        var attributedString = AttributedString("Список маршрутов общественного транспорта разделен на три категории: регулируемый тариф, маршруты МУП КТТУ и остальные. На данный момент доступно 126 маршрутов.")
+        var attributedString = AttributedString(Strings.SearchModal.RoutesGroup.description)
         
-        if let range = attributedString.range(of: "регулируемый тариф") {
+        if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.regulatedRates) {
             attributedString[range].foregroundColor = .green
         }
         
-        if let range = attributedString.range(of: "МУП КТТУ") {
+        if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.KTTU_MunicipalEnterprise) {
             attributedString[range].foregroundColor = .green
         }
         
-        if let range = attributedString.range(of: "остальные") {
+        if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.others) {
             attributedString[range].foregroundColor = .green
         }
         

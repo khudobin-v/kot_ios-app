@@ -2,10 +2,10 @@ import SwiftUI
 
 struct FavoriteRoutesView: View {
     @State var favoriteRoutes = []
-    let emptyFavoriteRoutesErrorText: String = "Добавьте избранные\n маршруты на карте"
+    let emptyFavoriteRoutesErrorText: String = Strings.SearchModal.FavoritesGroup.Routes.emptyDescription
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            Text("Избранные маршруты")
+            Text(Strings.SearchModal.FavoritesGroup.Routes.favorite)
                 .font(.title.weight(.medium))
             ScrollView() {
                 if favoriteRoutes.isEmpty {

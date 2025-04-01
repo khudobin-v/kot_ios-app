@@ -10,20 +10,20 @@ struct SearchModalView: View {
                 SearchBar(searchText: $searchText)
                 .padding(.horizontal)
                 .padding(.top, sheetDetent != .large ? 25 : 20)
-                    GroupContainer(heading: "Избранное") {
+                    GroupContainer(heading: Strings.SearchModal.FavoritesGroup.title) {
                         HStack {
-                            FavoriteView(name: "Транспорт", iconName: "bus.fill", childrenView: FavoriteTransportView())
+                            FavoriteView(name: Strings.SearchModal.FavoritesGroup.Transport.title, iconName: "bus.fill", childrenView: FavoriteTransportView())
                             Spacer()
-                            FavoriteView(name: "Остановки", iconName: "mappin.and.ellipse", childrenView: FavoriteStopsView())
+                            FavoriteView(name: Strings.SearchModal.FavoritesGroup.Stops.title, iconName: "mappin.and.ellipse", childrenView: FavoriteStopsView())
                             Spacer()
-                            FavoriteView(name: "Маршруты", iconName: "arrow.triangle.branch", childrenView: FavoriteRoutesView())
+                            FavoriteView(name: Strings.SearchModal.FavoritesGroup.Routes.title, iconName: "arrow.triangle.branch", childrenView: FavoriteRoutesView())
                         }
                     }
                     RoutesGroupView(childrenView: RoutesListView())
                     Button(action: {settingsSheetIsPresenting = true}) {
                         HStack(spacing: 10) {
                             Image(systemName: "gearshape")
-                            Text("Настройки")
+                            Text(Strings.Settings.title)
                         }
                         .padding(.horizontal)
                         .padding(.vertical, 1)
@@ -42,7 +42,7 @@ struct SearchModalView: View {
                     Button(action: {}) {
                         HStack(spacing: 10) {
                             Image(systemName: "questionmark.circle")
-                            Text("Сообщить о проблеме")
+                            Text(Strings.ReportIssue.title)
                         }
                         .padding(.horizontal)
                         .padding(.vertical, 1)

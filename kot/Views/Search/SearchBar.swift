@@ -6,7 +6,7 @@ struct SearchBar: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.gray)
-            TextField("Найти остановку или маршрут", text: $searchText)
+            TextField(Strings.SearchModal.searchPlaceholder, text: $searchText)
                 .textFieldStyle(PlainTextFieldStyle())
             if !searchText.isEmpty {
                 Button(action: { searchText = "" }) {
