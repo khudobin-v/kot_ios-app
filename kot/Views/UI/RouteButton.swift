@@ -6,8 +6,10 @@ struct RouteButton: View {
     var body: some View {
         Button(action: { }) {
             VStack(spacing: 4) {
-                Image(systemName: transportType.icon)
-                    .font(.system(size: 32))
+                Image(transportType.icon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
                 Text(routeNumber)
                     .font(.system(size: 32, weight: .bold))
                 }
@@ -27,11 +29,11 @@ enum TransportType {
     var color: Color {
         switch self {
         case .tram:
-            return .red
+            return .tram
         case .trolleybus:
-            return .blue
+            return .trolley
         case .bus:
-            return .green
+            return .bus
         }
     }
     
@@ -40,9 +42,9 @@ enum TransportType {
         case .tram:
             return "tram"
         case .trolleybus:
-            return "bus.doubledecker.fill"
+            return "trolley"
         case .bus :
-            return "bus.fill"
+            return "bus"
         }
     }
 }

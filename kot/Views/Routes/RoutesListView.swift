@@ -21,15 +21,15 @@ struct RoutesListView: View {
         var attributedString = AttributedString(Strings.SearchModal.RoutesGroup.description)
         
         if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.regulatedRates) {
-            attributedString[range].foregroundColor = .green
+            attributedString[range].foregroundColor = .blue
         }
         
         if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.KTTU_MunicipalEnterprise) {
-            attributedString[range].foregroundColor = .green
+            attributedString[range].foregroundColor = .blue
         }
         
         if let range = attributedString.range(of: Strings.SearchModal.RoutesGroup.DescriptionKeyWords.others) {
-            attributedString[range].foregroundColor = .green
+            attributedString[range].foregroundColor = .blue
         }
         
         return attributedString
