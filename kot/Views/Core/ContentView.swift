@@ -5,6 +5,8 @@ struct ContentView: View {
     @State private var mapRotation: Double = 0.0
     @StateObject private var viewModel = LocationViewModel()
     @State private var sheetDetent: PresentationDetent = .height(80)
+    @StateObject private var themeManager = ThemeManager.shared
+    
     var body: some View {
         ZStack {
             CustomMapView(
@@ -29,5 +31,7 @@ struct ContentView: View {
                 .presentationBackgroundInteraction(.enabled)
                 .interactiveDismissDisabled(true)
         }
+        .preferredColorScheme(themeManager.isDarkMode ? .dark : .light)
+        .environment(\.colorScheme, themeManager.isDarkMode ? .dark : .light)
     }
 }

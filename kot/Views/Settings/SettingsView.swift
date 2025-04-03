@@ -2,6 +2,8 @@ import SwiftUI
 import MapKit
 
 struct SettingsView: View {
+    @StateObject private var themeManager = ThemeManager.shared
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(Strings.Settings.title)
@@ -13,7 +15,7 @@ struct SettingsView: View {
                 VStack(spacing: 10) {
                     Text(Strings.Settings.description)
                         .font(.callout)
-                    AppearanceSection()
+                    AppearanceSection(darkModeIsOn: $themeManager.isDarkMode)
                     DataSection()
                     ResetAndDevelopmentSection()
                 }
@@ -22,8 +24,7 @@ struct SettingsView: View {
             .frame(maxWidth: .infinity)
         }
         .frame(maxWidth:.infinity, alignment: .leading)
-        
-        
+        .preferredColorScheme(themeManager.isDarkMode ? .dark : .light)
     }
 }
 
@@ -40,7 +41,7 @@ extension SettingsView {
     }
     
     struct AppearanceSection: View {
-        @State var darkModeIsOn: Bool = false
+        @Binding var darkModeIsOn: Bool
         @State var region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: 45.040595, longitude: 38.976057),
                 span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)

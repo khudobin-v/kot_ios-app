@@ -4,6 +4,8 @@ struct SearchModalView: View {
     @State private var searchText = ""
     @State var settingsSheetIsPresenting: Bool = false
     @Binding var sheetDetent: PresentationDetent
+    @StateObject private var themeManager = ThemeManager.shared
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -39,6 +41,7 @@ struct SearchModalView: View {
                         }
                         .presentationDragIndicator(.visible)
                         .edgesIgnoringSafeArea(.bottom)
+                        .preferredColorScheme(themeManager.isDarkMode ? .dark : .light)
                     }
                     Button(action: {}) {
                         HStack(spacing: 10) {
@@ -59,6 +62,7 @@ struct SearchModalView: View {
                 hideKeyboard()
             }
         }
+        .preferredColorScheme(themeManager.isDarkMode ? .dark : .light)
     }
 }
 
