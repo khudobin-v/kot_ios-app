@@ -49,9 +49,6 @@ enum Strings {
             static let title = "Сброс и разработка"
             static let developmentMode = "Режим разработки"
             static let developmentModeDescription = "Предоставляет информацию для разработки и тестирования. Не рекомендуем включать без необходимости"
-            
-        }
-        enum Buttons {
             static let resetSettings = "Сбросить настройки"
             static let resetFavorites = "Сбросить избранное"
         }

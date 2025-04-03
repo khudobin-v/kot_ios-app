@@ -34,10 +34,11 @@ struct SearchModalView: View {
                     }
                     .sheet(isPresented: $settingsSheetIsPresenting) {
                         VStack {
-                            SettingsView().padding().padding(.top, 10)
+                            SettingsView()
                             Spacer()
                         }
                         .presentationDragIndicator(.visible)
+                        .edgesIgnoringSafeArea(.bottom)
                     }
                     Button(action: {}) {
                         HStack(spacing: 10) {
